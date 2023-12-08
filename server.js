@@ -1,5 +1,5 @@
 const express=require('express');
-// const colors=require('colors');
+const colors=require('colors');
 const morgan=require('morgan');
 const dotenv=require('dotenv');
 const connectdb=require('./config/db');
@@ -25,16 +25,15 @@ app.use('/api/todo/auth',require('./routes/user_routes'));
 
 app.listen(port,console.log(`Server running on port ${port}`.red.underline.bold));
 
-// app.get('/',(req,res)=>{
-//     res.send('Hello from Express');
-// });
-// app.get('/todo',(req,res)=>{
-//     res.status(200).json({
-//         success:true,
-//         data:{
-//             id:1,
-//             name:'Todo App'
+app.get('/',(req,res)=>{
+    res.send('coonection successfully...');
+});
+app.get('/todo',(req,res)=>{
+    res.status(200).json({
+        success:true,
+        data:{
+           "your data":"coonected"
             
-//         }
-//     });   
-// });
+        }
+    });   
+});
