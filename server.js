@@ -1,6 +1,6 @@
 const express=require('express');
-const colors=require('colors');
-const morgan=require('morgan');
+// const colors=require('colors');
+// const morgan=require('morgan');
 const dotenv=require('dotenv');
 const connectdb=require('./config/db');
 
@@ -12,7 +12,7 @@ const app=express();
 //     next();
 // });
 
-app.use(morgan('dev'));//it will show the request in console
+// app.use(morgan('dev'));//it will show the request in console
 app.use(express.json({}));//it will parse the json data
 app.use(express.json({extended:true}));//it will parse the urlencoded data
 dotenv.config({path:'./config/config.env'});
@@ -23,7 +23,8 @@ const port=process.env.PORT || 3000;
 
 app.use('/api/todo/auth',require('./routes/user_routes'));
 
-app.listen(port,console.log(`Server running on port ${port}`.red.underline.bold));
+// app.listen(port,console.log(`Server running on port ${port}`.red.underline.bold));
+app.listen(port,console.log(`Server running on port ${port}`));
 
 app.get('/',(req,res)=>{
     res.send('coonection successfully...');
